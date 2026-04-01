@@ -44,6 +44,7 @@ export async function generateSlideshow({ prompts, outputDir, basePrompt }) {
   for (let i = 0; i < count; i++) {
     const slidePath = join(outputDir, `slide-${i + 1}.png`);
 
+    // Resume support — skip existing slides
     if (existsSync(slidePath)) {
       console.log(`[ImageGen] Slide ${i + 1}/${count} already exists, skipping`);
       results.push(slidePath);

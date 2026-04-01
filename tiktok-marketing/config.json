@@ -1,0 +1,34 @@
+{
+  "app": {
+    "name": "",
+    "description": "",
+    "audience": "",
+    "problem": "",
+    "differentiator": "",
+    "appStoreUrl": "",
+    "category": ""
+  },
+  "imageGen": {
+    "provider": "openai",
+    "model": "gpt-image-1",
+    "basePrompt": ""
+  },
+  "postiz": {
+    "apiKey": "(loaded from .env)",
+    "integrationIds": {
+      "tiktok": "",
+      "instagram": ""
+    }
+  },
+  "posting": {
+    "privacyLevel": "SELF_ONLY",
+    "schedule": ["07:30", "16:30", "21:00"],
+    "crossPost": [],
+    "timezone": "America/New_York"
+  },
+  "analytics": {
+    "highViewsThreshold": 1000,
+    "highEngagementRate": 0.05,
+    "trendWindowDays": 7
+  }
+}

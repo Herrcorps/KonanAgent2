@@ -12,15 +12,16 @@ function sleep(ms) {
 
 async function waitForRateLimit() {
   const now = Date.now();
+  // Remove timestamps older than 1 hour
   while (requestTimestamps.length > 0 && requestTimestamps[0] < now - RATE_WINDOW_MS) {
     requestTimestamps.shift();
   }
   if (requestTimestamps.length >= RATE_LIMIT) {
     const waitUntil = requestTimestamps[0] + RATE_WINDOW_MS;
-    const waitMs = waitUntil - now + 1000;
+    const waitMs = waitUntil - now + 1000; // +1s buffer
     console.log(`[Postiz] Rate limit reached (${RATE_LIMIT}/hr). Waiting ${Math.ceil(waitMs / 1000)}s...`);
     await sleep(waitMs);
-    return waitForRateLimit();
+    return waitForRateLimit(); // Re-check after waiting
   }
   requestTimestamps.push(Date.now());
 }
@@ -60,6 +61,8 @@ async function request(method, path, body, isFormData = false) {
   }
   return res.text();
 }
+
+// --- Public API ---
 
 export async function listIntegrations() {
   return request('GET', '/integrations');
