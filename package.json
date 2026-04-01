@@ -1,0 +1,29 @@
+{
+  "name": "konan-agent-2",
+  "version": "1.0.0",
+  "description": "TikTok & Instagram automation agent — AI slideshows, posting via Postiz, analytics feedback loop, Discord reporting",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "onboard": "node scripts/onboarding.js",
+    "generate": "node scripts/generate-slides.js",
+    "overlay": "node scripts/add-overlays.js",
+    "post:tiktok": "node scripts/post-to-tiktok.js",
+    "post:ig": "node scripts/post-to-instagram.js",
+    "analytics": "node scripts/check-analytics.js",
+    "report": "node scripts/daily-report.js",
+    "research": "node scripts/competitor-research.js",
+    "hooks": "node scripts/generate-hooks.js",
+    "pipeline": "node scripts/full-pipeline.js",
+    "schedule": "node scripts/scheduler.js"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "commander": "^12.0.0",
+    "dotenv": "^16.4.0",
+    "node-cron": "^3.0.3",
+    "openai": "^4.0.0"
+  }
+}
