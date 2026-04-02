@@ -42,8 +42,8 @@ const fileConfig = loadJsonFile(configPath);
 const config = Object.freeze({
   root: ROOT,
   postiz: {
-    apiKey: process.env.POSTIZ_API_KEY || '',
-    apiUrl: process.env.POSTIZ_API_URL || 'https://api.postiz.com/public/v1',
+    apiKey: (process.env.POSTIZ_API_KEY || '').trim(),
+    apiUrl: (process.env.POSTIZ_API_URL || 'https://api.postiz.com/public/v1').trim().replace(/\/+$/, ''),
   },
   openai: {
     apiKey: process.env.OPENAI_API_KEY || '',
