@@ -17,13 +17,15 @@
     "research": "node scripts/competitor-research.js",
     "hooks": "node scripts/generate-hooks.js",
     "pipeline": "node scripts/full-pipeline.js",
-    "schedule": "node scripts/scheduler.js"
+    "schedule": "node scripts/scheduler.js",
+    "bot": "node scripts/discord-bot.js"
   },
   "dependencies": {
     "canvas": "^2.11.2",
     "commander": "^12.0.0",
     "dotenv": "^16.4.0",
     "node-cron": "^3.0.3",
+    "discord.js": "^14.15.0",
     "openai": "^4.0.0"
   }
 }
