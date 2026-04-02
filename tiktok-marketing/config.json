@@ -10,7 +10,7 @@
   },
   "imageGen": {
     "provider": "openai",
-    "model": "gpt-image-1",
+    "model": "gpt-image-1.5",
     "basePrompt": ""
   },
   "postiz": {

@@ -47,7 +47,7 @@ const config = Object.freeze({
   },
   openai: {
     apiKey: process.env.OPENAI_API_KEY || '',
-    model: fileConfig?.imageGen?.model || 'gpt-image-1',
+    model: fileConfig?.imageGen?.model || 'gpt-image-1.5',
     chatModel: fileConfig?.chatModel || process.env.OPENAI_CHAT_MODEL || 'gpt-4o-mini',
   },
   discord: {
