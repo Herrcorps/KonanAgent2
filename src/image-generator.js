@@ -17,9 +17,8 @@ export async function generateSlide(prompt, outputPath) {
   const res = await client.images.generate({
     model: config.openai.model,
     prompt,
-    n: 1,
     size: '1024x1536',
-    response_format: 'b64_json',
+    output_format: 'png',
   });
 
   const b64 = res.data[0].b64_json;
