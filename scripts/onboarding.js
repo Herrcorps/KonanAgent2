@@ -49,7 +49,10 @@ async function validateConfig() {
   // Test Postiz connection
   if (config.postiz.apiKey && !config.postiz.apiKey.startsWith('your-')) {
     try {
-      console.log('\n  Testing Postiz API...');
+      const maskedKey = config.postiz.apiKey.slice(0, 6) + '***' + config.postiz.apiKey.slice(-4);
+      console.log(`\n  Testing Postiz API...`);
+      console.log(`  URL: ${config.postiz.apiUrl}/integrations`);
+      console.log(`  Key: ${maskedKey}`);
       const integrations = await listIntegrations();
       console.log(`  ✓ Postiz connected — ${Array.isArray(integrations) ? integrations.length : 0} integration(s) found`);
     } catch (err) {

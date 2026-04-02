@@ -31,7 +31,7 @@ async function request(method, path, body, isFormData = false) {
 
   const url = `${config.postiz.apiUrl}${path}`;
   const headers = {
-    Authorization: `Bearer ${config.postiz.apiKey}`,
+    Authorization: config.postiz.apiKey,
   };
   if (!isFormData) {
     headers['Content-Type'] = 'application/json';
