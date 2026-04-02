@@ -35,13 +35,10 @@ cron.schedule('0 8 * * *', () => {
   runScript('check-analytics.js', '--days 3 --connect');
 }, { timezone: config.timezone });
 
-// Competitor research reminder every Monday at 9 AM
+// Automated competitor research every Monday at 9 AM
 cron.schedule('0 9 * * 1', () => {
-  console.log(`\n[${new Date().toISOString()}] Sending research reminder...`);
-  sendMessage(
-    '📊 **Weekly Research Reminder**\nTime to check what competitors are doing this week.\n' +
-    'Run: `npm run research` to update competitor insights.'
-  ).catch(() => {});
+  console.log(`\n[${new Date().toISOString()}] Running automated competitor research...`);
+  runScript('competitor-research.js', '--auto-search');
 }, { timezone: config.timezone });
 
 // Generate new hooks Mon/Wed/Fri at 10 AM
@@ -53,7 +50,7 @@ cron.schedule('0 10 * * 1,3,5', () => {
 console.log('Scheduled jobs:');
 console.log('  • 7:00 AM daily  — Daily analytics report');
 console.log('  • 8:00 AM daily  — Analytics check + connect release IDs');
-console.log('  • 9:00 AM Monday — Competitor research reminder');
+console.log('  • 9:00 AM Monday — Automated competitor research (web search)');
 console.log('  • 10:00 AM M/W/F — Generate new hooks');
 console.log('\nScheduler running. Press Ctrl+C to stop.\n');
 

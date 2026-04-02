@@ -48,9 +48,12 @@ const config = Object.freeze({
   openai: {
     apiKey: process.env.OPENAI_API_KEY || '',
     model: fileConfig?.imageGen?.model || 'gpt-image-1',
+    chatModel: fileConfig?.chatModel || process.env.OPENAI_CHAT_MODEL || 'gpt-4o-mini',
   },
   discord: {
     webhookUrl: process.env.DISCORD_WEBHOOK_URL || '',
+    botToken: process.env.DISCORD_BOT_TOKEN || '',
+    channelId: process.env.DISCORD_CHANNEL_ID || '',
   },
   integrations: {
     tiktok: process.env.TIKTOK_INTEGRATION_ID || '',

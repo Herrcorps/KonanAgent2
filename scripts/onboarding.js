@@ -70,6 +70,16 @@ async function validateConfig() {
     }
   }
 
+  // Check optional features
+  console.log('\n  Optional features:');
+  if (config.discord.botToken) {
+    console.log('  ✓ Discord Bot Token is set (chat bot available)');
+  } else {
+    console.log('  - Discord Bot Token not set (chat bot disabled — see .env.example)');
+  }
+  console.log(`  ✓ Chat model: ${config.openai.chatModel}`);
+  console.log('  ✓ Web search: available (uses OpenAI Responses API)');
+
   // Check data files
   console.log('\n  Data files:');
   const dataFiles = ['config.json', 'app-profile.json', 'hook-performance.json', 'competitor-research.json', 'strategy.json'];
@@ -197,6 +207,10 @@ async function runOnboarding() {
   console.log('     npm run overlay -- --dir tiktok-marketing/posts/<your-post-dir>\n');
   console.log('  4. Post as draft to TikTok:');
   console.log('     npm run post:tiktok -- --dir tiktok-marketing/posts/<your-post-dir>\n');
+  console.log('  5. Or run the full pipeline in one command:');
+  console.log('     npm run pipeline -- --topic "your topic here"\n');
+  console.log('  BONUS: Start the Discord chat bot:');
+  console.log('     npm run bot\n');
 
   rl.close();
 }
